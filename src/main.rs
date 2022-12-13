@@ -4,7 +4,7 @@
 //! is rendered to the screen.
 
 use bevy::{
-    log::{Level, LogSettings},
+    log::Level,
     prelude::*,
     render::{
         extract_resource::{ExtractResource, ExtractResourcePlugin},
