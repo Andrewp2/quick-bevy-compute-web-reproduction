@@ -3,6 +3,7 @@
 //! Compute shaders use the GPU for computing arbitrary information, that may be independent of what
 //! is rendered to the screen.
 
+use bevy::log::LogSettings;
 use bevy::{
     log::Level,
     prelude::*,
@@ -15,6 +16,7 @@ use bevy::{
         settings::{Backends, WgpuSettings},
         RenderApp, RenderStage,
     },
+    tasks::run_async,
     window::WindowDescriptor,
 };
 use std::borrow::Cow;
@@ -22,11 +24,14 @@ use std::borrow::Cow;
 const SIZE: (u32, u32) = (1280, 720);
 const WORKGROUP_SIZE: u32 = 8;
 
-fn main() {
+#[bevy_main]
+async fn bevy_main() {
+    #[cfg(target_arch = "wasm32")]
+    console_error_panic_hook::set_once();
     let mut app = App::new();
     app.insert_resource(LogSettings {
-        level: Level::TRACE,
-        filter: "wgpu=trace,bevy_render=trace,bevy_ecs=trace".to_string(),
+        level: Level::INFO,
+        filter: "wgpu=INFO,bevy_render=INFO,bevy_ecs=INFO".to_string(),
     });
     #[cfg(target_arch = "wasm32")]
     app.insert_resource(WgpuSettings {
@@ -49,10 +54,13 @@ fn main() {
             // present_mode: bevy::window::PresentMode::AutoNoVsync,
             ..default()
         })
-        .add_plugins(DefaultPlugins)
-        .add_plugin(GameOfLifeComputePlugin)
-        .add_startup_system(setup)
-        .run();
+        .add_plugins_async(DefaultPlugins)
+        .await
+        .unwrap();
+    app.add_plugin_async(&GameOfLifeComputePlugin)
+        .await
+        .unwrap();
+    app.add_startup_system(setup).run();
 }
 
 fn setup(mut commands: Commands, mut images: ResMut<Assets<Image>>) {

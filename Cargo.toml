@@ -6,7 +6,9 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html\
 
 [dependencies]
-bevy = { git = "https://github.com/Andrewp2/bevy-webgpu-compatible.git", branch = "webgpu-2"}
+bevy = { git = "https://github.com/Andrewp2/andrew-bevy.git", branch = "webgpu-2"}
+wgpu = "0.13.1"
+console_error_panic_hook = "0.1"
 
 [workspace]
 resolver = "2" # Important! wgpu/Bevy needs this!
