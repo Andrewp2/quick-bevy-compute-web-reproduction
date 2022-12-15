@@ -1,0 +1,649 @@
+web_test v0.1.0 (C:\Users\Andrew\code\rust\web_test)
+├── bevy v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│   └── bevy_internal v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       ├── bevy_animation v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   ├── anyhow v1.0.66
+│       │   │   ├── bevy_derive v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   ├── bevy_macro_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   ├── quote v1.0.21
+│       │   │   │   │   │   └── proc-macro2 v1.0.47
+│       │   │   │   │   │       └── unicode-ident v1.0.5
+│       │   │   │   │   ├── syn v1.0.105
+│       │   │   │   │   │   ├── proc-macro2 v1.0.47 (*)
+│       │   │   │   │   │   ├── quote v1.0.21 (*)
+│       │   │   │   │   │   └── unicode-ident v1.0.5
+│       │   │   │   │   └── toml v0.5.9
+│       │   │   │   │       └── serde v1.0.150
+│       │   │   │   ├── quote v1.0.21 (*)
+│       │   │   │   └── syn v1.0.105 (*)
+│       │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   ├── async-channel v1.8.0
+│       │   │   │   │   ├── concurrent-queue v2.0.0
+│       │   │   │   │   │   └── crossbeam-utils v0.8.14
+│       │   │   │   │   │       └── cfg-if v1.0.0
+│       │   │   │   │   ├── event-listener v2.5.3
+│       │   │   │   │   └── futures-core v0.3.25
+│       │   │   │   ├── bevy_ecs_macros v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   ├── bevy_macro_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   ├── proc-macro2 v1.0.47 (*)
+│       │   │   │   │   ├── quote v1.0.21 (*)
+│       │   │   │   │   └── syn v1.0.105 (*)
+│       │   │   │   ├── bevy_ptr v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   ├── bevy_ptr v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   ├── bevy_reflect_derive v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   │   ├── bevy_macro_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   │   ├── proc-macro2 v1.0.47 (*)
+│       │   │   │   │   │   ├── quote v1.0.21 (*)
+│       │   │   │   │   │   ├── syn v1.0.105 (*)
+│       │   │   │   │   │   └── uuid v1.2.2
+│       │   │   │   │   │       └── getrandom v0.2.8
+│       │   │   │   │   │           └── cfg-if v1.0.0
+│       │   │   │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   │   ├── ahash v0.7.6
+│       │   │   │   │   │   │   ├── getrandom v0.2.8 (*)
+│       │   │   │   │   │   │   └── once_cell v1.16.0
+│       │   │   │   │   │   │   [build-dependencies]
+│       │   │   │   │   │   │   └── version_check v0.9.4
+│       │   │   │   │   │   ├── hashbrown v0.12.3
+│       │   │   │   │   │   │   ├── ahash v0.7.6 (*)
+│       │   │   │   │   │   │   └── serde v1.0.150
+│       │   │   │   │   │   │       └── serde_derive v1.0.150 (proc-macro)
+│       │   │   │   │   │   │           ├── proc-macro2 v1.0.47 (*)
+│       │   │   │   │   │   │           ├── quote v1.0.21 (*)
+│       │   │   │   │   │   │           └── syn v1.0.105 (*)
+│       │   │   │   │   │   ├── instant v0.1.12
+│       │   │   │   │   │   │   └── cfg-if v1.0.0
+│       │   │   │   │   │   ├── tracing v0.1.37
+│       │   │   │   │   │   │   ├── cfg-if v1.0.0
+│       │   │   │   │   │   │   ├── pin-project-lite v0.2.9
+│       │   │   │   │   │   │   └── tracing-core v0.1.30
+│       │   │   │   │   │   │       └── once_cell v1.16.0
+│       │   │   │   │   │   └── uuid v1.2.2
+│       │   │   │   │   │       ├── getrandom v0.2.8 (*)
+│       │   │   │   │   │       └── serde v1.0.150 (*)
+│       │   │   │   │   ├── downcast-rs v1.2.0
+│       │   │   │   │   ├── erased-serde v0.3.23
+│       │   │   │   │   │   └── serde v1.0.150 (*)
+│       │   │   │   │   ├── glam v0.21.3
+│       │   │   │   │   │   ├── bytemuck v1.12.3
+│       │   │   │   │   │   │   └── bytemuck_derive v1.3.0 (proc-macro)
+│       │   │   │   │   │   │       ├── proc-macro2 v1.0.47 (*)
+│       │   │   │   │   │   │       ├── quote v1.0.21 (*)
+│       │   │   │   │   │   │       └── syn v1.0.105 (*)
+│       │   │   │   │   │   └── serde v1.0.150 (*)
+│       │   │   │   │   ├── once_cell v1.16.0
+│       │   │   │   │   ├── parking_lot v0.12.1
+│       │   │   │   │   │   ├── lock_api v0.4.9
+│       │   │   │   │   │   │   └── scopeguard v1.1.0
+│       │   │   │   │   │   │   [build-dependencies]
+│       │   │   │   │   │   │   └── autocfg v1.1.0
+│       │   │   │   │   │   └── parking_lot_core v0.9.5
+│       │   │   │   │   │       ├── cfg-if v1.0.0
+│       │   │   │   │   │       ├── smallvec v1.10.0
+│       │   │   │   │   │       │   └── serde v1.0.150 (*)
+│       │   │   │   │   │       └── windows-sys v0.42.0
+│       │   │   │   │   │           └── windows_x86_64_msvc v0.42.0
+│       │   │   │   │   ├── serde v1.0.150 (*)
+│       │   │   │   │   ├── smallvec v1.10.0 (*)
+│       │   │   │   │   └── thiserror v1.0.37
+│       │   │   │   │       └── thiserror-impl v1.0.37 (proc-macro)
+│       │   │   │   │           ├── proc-macro2 v1.0.47 (*)
+│       │   │   │   │           ├── quote v1.0.21 (*)
+│       │   │   │   │           └── syn v1.0.105 (*)
+│       │   │   │   ├── bevy_tasks v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   ├── async-channel v1.8.0 (*)
+│       │   │   │   │   ├── async-executor v1.5.0
+│       │   │   │   │   │   ├── async-lock v2.6.0
+│       │   │   │   │   │   │   ├── event-listener v2.5.3
+│       │   │   │   │   │   │   └── futures-lite v1.12.0
+│       │   │   │   │   │   │       ├── fastrand v1.8.0
+│       │   │   │   │   │   │       ├── futures-core v0.3.25
+│       │   │   │   │   │   │       ├── futures-io v0.3.25
+│       │   │   │   │   │   │       ├── memchr v2.5.0
+│       │   │   │   │   │   │       ├── parking v2.0.0
+│       │   │   │   │   │   │       ├── pin-project-lite v0.2.9
+│       │   │   │   │   │   │       └── waker-fn v1.1.0
+│       │   │   │   │   │   ├── async-task v4.3.0
+│       │   │   │   │   │   ├── concurrent-queue v2.0.0 (*)
+│       │   │   │   │   │   ├── fastrand v1.8.0
+│       │   │   │   │   │   ├── futures-lite v1.12.0 (*)
+│       │   │   │   │   │   └── slab v0.4.7
+│       │   │   │   │   │       [build-dependencies]
+│       │   │   │   │   │       └── autocfg v1.1.0
+│       │   │   │   │   ├── event-listener v2.5.3
+│       │   │   │   │   ├── futures-lite v1.12.0 (*)
+│       │   │   │   │   ├── num_cpus v1.14.0
+│       │   │   │   │   └── once_cell v1.16.0
+│       │   │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   ├── downcast-rs v1.2.0
+│       │   │   │   ├── fixedbitset v0.4.2
+│       │   │   │   ├── fxhash v0.2.1
+│       │   │   │   │   └── byteorder v1.4.3
+│       │   │   │   ├── serde v1.0.150 (*)
+│       │   │   │   └── thread_local v1.1.4
+│       │   │   │       └── once_cell v1.16.0
+│       │   │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_tasks v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   └── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   ├── anyhow v1.0.66
+│       │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_diagnostic v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   ├── bevy_log v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   ├── tracing-log v0.1.3
+│       │   │   │   │   │   ├── lazy_static v1.4.0
+│       │   │   │   │   │   ├── log v0.4.17
+│       │   │   │   │   │   │   └── cfg-if v1.0.0
+│       │   │   │   │   │   └── tracing-core v0.1.30 (*)
+│       │   │   │   │   └── tracing-subscriber v0.3.16
+│       │   │   │   │       ├── matchers v0.1.0
+│       │   │   │   │       │   └── regex-automata v0.1.10
+│       │   │   │   │       │       └── regex-syntax v0.6.28
+│       │   │   │   │       ├── nu-ansi-term v0.46.0
+│       │   │   │   │       │   ├── overload v0.1.1
+│       │   │   │   │       │   └── winapi v0.3.9
+│       │   │   │   │       ├── once_cell v1.16.0
+│       │   │   │   │       ├── regex v1.7.0
+│       │   │   │   │       │   ├── aho-corasick v0.7.20
+│       │   │   │   │       │   │   └── memchr v2.5.0
+│       │   │   │   │       │   ├── memchr v2.5.0
+│       │   │   │   │       │   └── regex-syntax v0.6.28
+│       │   │   │   │       ├── sharded-slab v0.1.4
+│       │   │   │   │       │   └── lazy_static v1.4.0
+│       │   │   │   │       ├── smallvec v1.10.0 (*)
+│       │   │   │   │       ├── thread_local v1.1.4 (*)
+│       │   │   │   │       ├── tracing v0.1.37 (*)
+│       │   │   │   │       ├── tracing-core v0.1.30 (*)
+│       │   │   │   │       └── tracing-log v0.1.3 (*)
+│       │   │   │   ├── bevy_time v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   └── crossbeam-channel v0.5.6
+│       │   │   │   │       ├── cfg-if v1.0.0
+│       │   │   │   │       └── crossbeam-utils v0.8.14 (*)
+│       │   │   │   └── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_log v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_tasks v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── crossbeam-channel v0.5.6 (*)
+│       │   │   ├── downcast-rs v1.2.0
+│       │   │   ├── fastrand v1.8.0
+│       │   │   ├── notify v5.0.0-pre.15
+│       │   │   │   ├── bitflags v1.3.2
+│       │   │   │   ├── crossbeam-channel v0.5.6 (*)
+│       │   │   │   ├── filetime v0.2.19
+│       │   │   │   │   ├── cfg-if v1.0.0
+│       │   │   │   │   └── windows-sys v0.42.0 (*)
+│       │   │   │   ├── libc v0.2.138
+│       │   │   │   ├── walkdir v2.3.2
+│       │   │   │   │   ├── same-file v1.0.6
+│       │   │   │   │   │   └── winapi-util v0.1.5
+│       │   │   │   │   │       └── winapi v0.3.9
+│       │   │   │   │   ├── winapi v0.3.9
+│       │   │   │   │   └── winapi-util v0.1.5 (*)
+│       │   │   │   └── winapi v0.3.9
+│       │   │   ├── parking_lot v0.12.1 (*)
+│       │   │   ├── serde v1.0.150 (*)
+│       │   │   └── thiserror v1.0.37 (*)
+│       │   ├── bevy_core v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   └── glam v0.21.3 (*)
+│       │   │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_tasks v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   └── bytemuck v1.12.3 (*)
+│       │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_hierarchy v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   └── smallvec v1.10.0 (*)
+│       │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_time v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_hierarchy v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   └── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   └── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_audio v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   ├── anyhow v1.0.66
+│       │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── parking_lot v0.12.1 (*)
+│       │   └── rodio v0.15.0
+│       │       ├── cpal v0.13.5
+│       │       │   ├── lazy_static v1.4.0
+│       │       │   ├── parking_lot v0.11.2
+│       │       │   │   ├── instant v0.1.12 (*)
+│       │       │   │   ├── lock_api v0.4.9 (*)
+│       │       │   │   └── parking_lot_core v0.8.6
+│       │       │   │       ├── cfg-if v1.0.0
+│       │       │   │       ├── instant v0.1.12 (*)
+│       │       │   │       ├── smallvec v1.10.0 (*)
+│       │       │   │       └── winapi v0.3.9
+│       │       │   ├── thiserror v1.0.37 (*)
+│       │       │   └── winapi v0.3.9
+│       │       └── lewton v0.10.2
+│       │           ├── byteorder v1.4.3
+│       │           ├── ogg v0.8.0
+│       │           │   └── byteorder v1.4.3
+│       │           └── tinyvec v1.6.0
+│       │               └── tinyvec_macros v0.1.0
+│       ├── bevy_core v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_core_pipeline v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_derive v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_render v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   ├── anyhow v1.0.66
+│       │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_core v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_derive v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_encase_derive v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   ├── bevy_macro_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   └── encase_derive_impl v0.3.0
+│       │   │   │       ├── proc-macro2 v1.0.47 (*)
+│       │   │   │       ├── quote v1.0.21 (*)
+│       │   │   │       └── syn v1.0.105 (*)
+│       │   │   ├── bevy_hierarchy v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_log v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_mikktspace v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   └── glam v0.21.3 (*)
+│       │   │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_render_macros v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   ├── bevy_macro_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   ├── proc-macro2 v1.0.47 (*)
+│       │   │   │   ├── quote v1.0.21 (*)
+│       │   │   │   └── syn v1.0.105 (*)
+│       │   │   ├── bevy_time v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_window v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   ├── bevy_input v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   │   └── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   │   └── raw-window-handle v0.4.3
+│       │   │   │       └── cty v0.2.2
+│       │   │   ├── bitflags v1.3.2
+│       │   │   ├── codespan-reporting v0.11.1
+│       │   │   │   ├── termcolor v1.1.3
+│       │   │   │   │   └── winapi-util v0.1.5 (*)
+│       │   │   │   └── unicode-width v0.1.10
+│       │   │   ├── copyless v0.1.5
+│       │   │   ├── downcast-rs v1.2.0
+│       │   │   ├── encase v0.3.0
+│       │   │   │   ├── const_panic v0.2.7
+│       │   │   │   ├── encase_derive v0.3.0 (proc-macro)
+│       │   │   │   │   └── encase_derive_impl v0.3.0 (*)
+│       │   │   │   ├── glam v0.21.3 (*)
+│       │   │   │   └── thiserror v1.0.37 (*)
+│       │   │   ├── futures-lite v1.12.0 (*)
+│       │   │   ├── hex v0.4.3
+│       │   │   ├── hexasphere v7.2.1
+│       │   │   │   ├── glam v0.21.3 (*)
+│       │   │   │   └── once_cell v1.16.0
+│       │   │   ├── image v0.24.5
+│       │   │   │   ├── bytemuck v1.12.3 (*)
+│       │   │   │   ├── byteorder v1.4.3
+│       │   │   │   ├── color_quant v1.1.0
+│       │   │   │   ├── num-rational v0.4.1
+│       │   │   │   │   ├── num-integer v0.1.45
+│       │   │   │   │   │   └── num-traits v0.2.15
+│       │   │   │   │   │       [build-dependencies]
+│       │   │   │   │   │       └── autocfg v1.1.0
+│       │   │   │   │   │   [build-dependencies]
+│       │   │   │   │   │   └── autocfg v1.1.0
+│       │   │   │   │   └── num-traits v0.2.15 (*)
+│       │   │   │   │   [build-dependencies]
+│       │   │   │   │   └── autocfg v1.1.0
+│       │   │   │   ├── num-traits v0.2.15 (*)
+│       │   │   │   ├── png v0.17.7
+│       │   │   │   │   ├── bitflags v1.3.2
+│       │   │   │   │   ├── crc32fast v1.3.2
+│       │   │   │   │   │   └── cfg-if v1.0.0
+│       │   │   │   │   ├── flate2 v1.0.25
+│       │   │   │   │   │   ├── crc32fast v1.3.2 (*)
+│       │   │   │   │   │   └── miniz_oxide v0.6.2
+│       │   │   │   │   │       └── adler v1.0.2
+│       │   │   │   │   └── miniz_oxide v0.6.2 (*)
+│       │   │   │   └── scoped_threadpool v0.1.9
+│       │   │   ├── naga v0.9.0
+│       │   │   │   ├── bit-set v0.5.3
+│       │   │   │   │   └── bit-vec v0.6.3
+│       │   │   │   ├── bitflags v1.3.2
+│       │   │   │   ├── codespan-reporting v0.11.1 (*)
+│       │   │   │   ├── hexf-parse v0.2.1
+│       │   │   │   ├── indexmap v1.9.2
+│       │   │   │   │   └── hashbrown v0.12.3 (*)
+│       │   │   │   │   [build-dependencies]
+│       │   │   │   │   └── autocfg v1.1.0
+│       │   │   │   ├── log v0.4.17 (*)
+│       │   │   │   ├── num-traits v0.2.15 (*)
+│       │   │   │   ├── petgraph v0.6.2
+│       │   │   │   │   ├── fixedbitset v0.4.2
+│       │   │   │   │   └── indexmap v1.9.2 (*)
+│       │   │   │   ├── pp-rs v0.2.1
+│       │   │   │   │   └── unicode-xid v0.2.4
+│       │   │   │   ├── rustc-hash v1.1.0
+│       │   │   │   ├── spirv v0.2.0+1.5.4
+│       │   │   │   │   ├── bitflags v1.3.2
+│       │   │   │   │   └── num-traits v0.2.15 (*)
+│       │   │   │   ├── termcolor v1.1.3 (*)
+│       │   │   │   ├── thiserror v1.0.37 (*)
+│       │   │   │   └── unicode-xid v0.2.4
+│       │   │   ├── once_cell v1.16.0
+│       │   │   ├── parking_lot v0.12.1 (*)
+│       │   │   ├── regex v1.7.0 (*)
+│       │   │   ├── serde v1.0.150 (*)
+│       │   │   ├── smallvec v1.10.0 (*)
+│       │   │   ├── thiserror v1.0.37 (*)
+│       │   │   ├── thread_local v1.1.4 (*)
+│       │   │   └── wgpu v0.13.1
+│       │   │       ├── arrayvec v0.7.2
+│       │   │       ├── log v0.4.17 (*)
+│       │   │       ├── naga v0.9.0 (*)
+│       │   │       ├── parking_lot v0.12.1 (*)
+│       │   │       ├── raw-window-handle v0.4.3 (*)
+│       │   │       ├── smallvec v1.10.0 (*)
+│       │   │       ├── wgpu-core v0.13.2
+│       │   │       │   ├── arrayvec v0.7.2
+│       │   │       │   ├── bit-vec v0.6.3
+│       │   │       │   ├── bitflags v1.3.2
+│       │   │       │   ├── codespan-reporting v0.11.1 (*)
+│       │   │       │   ├── copyless v0.1.5
+│       │   │       │   ├── fxhash v0.2.1 (*)
+│       │   │       │   ├── log v0.4.17 (*)
+│       │   │       │   ├── naga v0.9.0 (*)
+│       │   │       │   ├── parking_lot v0.12.1 (*)
+│       │   │       │   ├── profiling v1.0.7
+│       │   │       │   ├── raw-window-handle v0.4.3 (*)
+│       │   │       │   ├── smallvec v1.10.0 (*)
+│       │   │       │   ├── thiserror v1.0.37 (*)
+│       │   │       │   ├── wgpu-hal v0.13.2
+│       │   │       │   │   ├── arrayvec v0.7.2
+│       │   │       │   │   ├── ash v0.37.1+1.3.235
+│       │   │       │   │   │   └── libloading v0.7.4
+│       │   │       │   │   │       └── winapi v0.3.9
+│       │   │       │   │   ├── bit-set v0.5.3 (*)
+│       │   │       │   │   ├── bitflags v1.3.2
+│       │   │       │   │   ├── d3d12 v0.5.0
+│       │   │       │   │   │   ├── bitflags v1.3.2
+│       │   │       │   │   │   ├── libloading v0.7.4 (*)
+│       │   │       │   │   │   └── winapi v0.3.9
+│       │   │       │   │   ├── fxhash v0.2.1 (*)
+│       │   │       │   │   ├── gpu-alloc v0.5.3
+│       │   │       │   │   │   ├── bitflags v1.3.2
+│       │   │       │   │   │   └── gpu-alloc-types v0.2.0
+│       │   │       │   │   │       └── bitflags v1.3.2
+│       │   │       │   │   ├── gpu-descriptor v0.2.3
+│       │   │       │   │   │   ├── bitflags v1.3.2
+│       │   │       │   │   │   ├── gpu-descriptor-types v0.1.1
+│       │   │       │   │   │   │   └── bitflags v1.3.2
+│       │   │       │   │   │   └── hashbrown v0.12.3 (*)
+│       │   │       │   │   ├── inplace_it v0.3.5
+│       │   │       │   │   ├── libloading v0.7.4 (*)
+│       │   │       │   │   ├── log v0.4.17 (*)
+│       │   │       │   │   ├── naga v0.9.0 (*)
+│       │   │       │   │   ├── parking_lot v0.12.1 (*)
+│       │   │       │   │   ├── profiling v1.0.7
+│       │   │       │   │   ├── range-alloc v0.1.2
+│       │   │       │   │   ├── raw-window-handle v0.4.3 (*)
+│       │   │       │   │   ├── renderdoc-sys v0.7.1
+│       │   │       │   │   ├── thiserror v1.0.37 (*)
+│       │   │       │   │   ├── wgpu-types v0.13.2
+│       │   │       │   │   │   └── bitflags v1.3.2
+│       │   │       │   │   └── winapi v0.3.9
+│       │   │       │   └── wgpu-types v0.13.2 (*)
+│       │   │       │   [build-dependencies]
+│       │   │       │   └── cfg_aliases v0.1.1
+│       │   │       ├── wgpu-hal v0.13.2 (*)
+│       │   │       └── wgpu-types v0.13.2 (*)
+│       │   ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── radsort v0.1.0
+│       │   └── serde v1.0.150 (*)
+│       ├── bevy_derive v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_diagnostic v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_gilrs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_input v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   └── gilrs v0.9.0
+│       │       ├── fnv v1.0.7
+│       │       ├── gilrs-core v0.4.1
+│       │       │   ├── log v0.4.17 (*)
+│       │       │   ├── rusty-xinput v1.2.0
+│       │       │   │   ├── lazy_static v1.4.0
+│       │       │   │   ├── log v0.4.17 (*)
+│       │       │   │   └── winapi v0.3.9
+│       │       │   ├── uuid v1.2.2 (*)
+│       │       │   └── winapi v0.3.9
+│       │       ├── log v0.4.17 (*)
+│       │       ├── uuid v1.2.2 (*)
+│       │       └── vec_map v0.8.2
+│       ├── bevy_gltf v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   ├── anyhow v1.0.66
+│       │   ├── base64 v0.13.1
+│       │   ├── bevy_animation v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_core v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_core_pipeline v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_hierarchy v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_log v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_pbr v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_core_pipeline v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_render v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_window v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bitflags v1.3.2
+│       │   │   ├── bytemuck v1.12.3 (*)
+│       │   │   └── radsort v0.1.0
+│       │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_render v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_scene v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   │   ├── anyhow v1.0.66
+│       │   │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_derive v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_hierarchy v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_render v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   │   ├── ron v0.7.1
+│       │   │   │   ├── base64 v0.13.1
+│       │   │   │   ├── bitflags v1.3.2
+│       │   │   │   └── serde v1.0.150 (*)
+│       │   │   ├── serde v1.0.150 (*)
+│       │   │   ├── thiserror v1.0.37 (*)
+│       │   │   └── uuid v1.2.2 (*)
+│       │   ├── bevy_tasks v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── gltf v1.0.0
+│       │   │   ├── byteorder v1.4.3
+│       │   │   ├── gltf-json v1.0.0
+│       │   │   │   ├── gltf-derive v1.0.0 (proc-macro)
+│       │   │   │   │   ├── inflections v1.1.1
+│       │   │   │   │   ├── proc-macro2 v1.0.47 (*)
+│       │   │   │   │   ├── quote v1.0.21 (*)
+│       │   │   │   │   └── syn v1.0.105 (*)
+│       │   │   │   ├── serde v1.0.150 (*)
+│       │   │   │   ├── serde_derive v1.0.150 (proc-macro) (*)
+│       │   │   │   └── serde_json v1.0.89
+│       │   │   │       ├── itoa v1.0.4
+│       │   │   │       ├── ryu v1.0.11
+│       │   │   │       └── serde v1.0.150 (*)
+│       │   │   └── lazy_static v1.4.0
+│       │   ├── percent-encoding v2.2.0
+│       │   └── thiserror v1.0.37 (*)
+│       ├── bevy_hierarchy v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_input v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_log v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_pbr v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_ptr v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_render v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_scene v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_sprite v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_core_pipeline v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_log v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_render v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bitflags v1.3.2
+│       │   ├── bytemuck v1.12.3 (*)
+│       │   ├── copyless v0.1.5
+│       │   ├── fixedbitset v0.4.2
+│       │   ├── guillotiere v0.6.2
+│       │   │   ├── euclid v0.22.7
+│       │   │   │   └── num-traits v0.2.15 (*)
+│       │   │   └── svg_fmt v0.4.1
+│       │   ├── rectangle-pack v0.4.2
+│       │   ├── serde v1.0.150 (*)
+│       │   └── thiserror v1.0.37 (*)
+│       ├── bevy_tasks v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_text v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   ├── ab_glyph v0.2.18
+│       │   │   ├── ab_glyph_rasterizer v0.1.7
+│       │   │   └── owned_ttf_parser v0.17.1
+│       │   │       └── ttf-parser v0.17.1
+│       │   ├── anyhow v1.0.66
+│       │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_render v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_sprite v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_window v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── glyph_brush_layout v0.2.3
+│       │   │   ├── ab_glyph v0.2.18 (*)
+│       │   │   ├── approx v0.5.1
+│       │   │   │   └── num-traits v0.2.15 (*)
+│       │   │   └── xi-unicode v0.3.0
+│       │   ├── serde v1.0.150 (*)
+│       │   └── thiserror v1.0.37 (*)
+│       ├── bevy_time v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_ui v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│       │   ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_asset v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_core_pipeline v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_derive v0.8.1 (proc-macro) (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_hierarchy v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_input v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_log v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_reflect v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_render v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_sprite v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_text v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_transform v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bevy_window v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       │   ├── bytemuck v1.12.3 (*)
+│       │   ├── serde v1.0.150 (*)
+│       │   ├── smallvec v1.10.0 (*)
+│       │   └── taffy v0.1.0
+│       │       ├── arrayvec v0.7.2
+│       │       ├── hash32 v0.2.1
+│       │       │   └── byteorder v1.4.3
+│       │       ├── hash32-derive v0.1.1 (proc-macro)
+│       │       │   ├── proc-macro2 v1.0.47 (*)
+│       │       │   ├── quote v1.0.21 (*)
+│       │       │   └── syn v1.0.105 (*)
+│       │       ├── num-traits v0.2.15 (*)
+│       │       └── typenum v1.16.0
+│       ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       ├── bevy_window v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│       └── bevy_winit v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5)
+│           ├── approx v0.5.1 (*)
+│           ├── bevy_app v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│           ├── bevy_ecs v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│           ├── bevy_input v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│           ├── bevy_math v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│           ├── bevy_utils v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│           ├── bevy_window v0.8.1 (https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e5) (*)
+│           ├── raw-window-handle v0.4.3 (*)
+│           └── winit v0.26.1
+│               ├── bitflags v1.3.2
+│               ├── instant v0.1.12 (*)
+│               ├── lazy_static v1.4.0
+│               ├── log v0.4.17 (*)
+│               ├── parking_lot v0.11.2 (*)
+│               ├── raw-window-handle v0.4.3 (*)
+│               └── winapi v0.3.9
+└── console_error_panic_hook v0.1.7
+    ├── cfg-if v1.0.0
+    └── wasm-bindgen v0.2.83
+        ├── cfg-if v1.0.0
+        └── wasm-bindgen-macro v0.2.83 (proc-macro)
+            ├── quote v1.0.21 (*)
+            └── wasm-bindgen-macro-support v0.2.83
+                ├── proc-macro2 v1.0.47 (*)
+                ├── quote v1.0.21 (*)
+                ├── syn v1.0.105 (*)
+                ├── wasm-bindgen-backend v0.2.83
+                │   ├── bumpalo v3.11.1
+                │   ├── log v0.4.17
+                │   │   └── cfg-if v1.0.0
+                │   ├── once_cell v1.16.0
+                │   ├── proc-macro2 v1.0.47 (*)
+                │   ├── quote v1.0.21 (*)
+                │   ├── syn v1.0.105 (*)
+                │   └── wasm-bindgen-shared v0.2.83
+                └── wasm-bindgen-shared v0.2.83

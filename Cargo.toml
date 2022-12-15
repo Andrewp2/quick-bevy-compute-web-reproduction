@@ -7,8 +7,10 @@ edition = "2021"
 
 [dependencies]
 bevy = { git = "https://github.com/Andrewp2/andrew-bevy.git", branch = "webgpu-2"}
-wgpu = "0.13.1"
 console_error_panic_hook = "0.1"
 
 [workspace]
 resolver = "2" # Important! wgpu/Bevy needs this!
+members = [
+    "run-wasm",
+]

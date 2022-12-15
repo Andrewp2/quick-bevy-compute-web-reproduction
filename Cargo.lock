@@ -172,6 +172,16 @@ checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
 name = "base64"
+version = "0.9.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "489d6c0ed21b11d038c31b6ceccca973e65d73ba3bd8ecb9a2babf5546164643"
+dependencies = [
+ "byteorder",
+ "safemem",
+]
+
+[[package]]
+name = "base64"
 version = "0.13.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9e1b586273c5702936fe7b7d6896644d8be71e6314cfe09d3167c95f712589e8"
@@ -179,7 +189,7 @@ checksum = "9e1b586273c5702936fe7b7d6896644d8be71e6314cfe09d3167c95f712589e8"
 [[package]]
 name = "bevy"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_internal",
 ]
@@ -187,7 +197,7 @@ dependencies = [
 [[package]]
 name = "bevy_animation"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_asset",
@@ -204,7 +214,7 @@ dependencies = [
 [[package]]
 name = "bevy_app"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "anyhow",
  "bevy_derive",
@@ -219,7 +229,7 @@ dependencies = [
 [[package]]
 name = "bevy_asset"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "anyhow",
  "bevy_app",
@@ -246,7 +256,7 @@ dependencies = [
 [[package]]
 name = "bevy_audio"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "anyhow",
  "bevy_app",
@@ -261,7 +271,7 @@ dependencies = [
 [[package]]
 name = "bevy_core"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_ecs",
@@ -275,7 +285,7 @@ dependencies = [
 [[package]]
 name = "bevy_core_pipeline"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_asset",
@@ -292,7 +302,7 @@ dependencies = [
 [[package]]
 name = "bevy_derive"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_macro_utils",
  "quote",
@@ -302,7 +312,7 @@ dependencies = [
 [[package]]
 name = "bevy_diagnostic"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_ecs",
@@ -314,7 +324,7 @@ dependencies = [
 [[package]]
 name = "bevy_ecs"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "async-channel",
  "bevy_ecs_macros",
@@ -332,7 +342,7 @@ dependencies = [
 [[package]]
 name = "bevy_ecs_macros"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_macro_utils",
  "proc-macro2",
@@ -343,7 +353,7 @@ dependencies = [
 [[package]]
 name = "bevy_encase_derive"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_macro_utils",
  "encase_derive_impl",
@@ -352,7 +362,7 @@ dependencies = [
 [[package]]
 name = "bevy_gilrs"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_ecs",
@@ -364,10 +374,10 @@ dependencies = [
 [[package]]
 name = "bevy_gltf"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "anyhow",
- "base64",
+ "base64 0.13.1",
  "bevy_animation",
  "bevy_app",
  "bevy_asset",
@@ -392,7 +402,7 @@ dependencies = [
 [[package]]
 name = "bevy_hierarchy"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_ecs",
@@ -404,7 +414,7 @@ dependencies = [
 [[package]]
 name = "bevy_input"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_ecs",
@@ -415,7 +425,7 @@ dependencies = [
 [[package]]
 name = "bevy_internal"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_animation",
  "bevy_app",
@@ -452,7 +462,7 @@ dependencies = [
 [[package]]
 name = "bevy_log"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "android_log-sys",
  "bevy_app",
@@ -466,7 +476,7 @@ dependencies = [
 [[package]]
 name = "bevy_macro_utils"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "quote",
  "syn",
@@ -476,7 +486,7 @@ dependencies = [
 [[package]]
 name = "bevy_math"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "glam",
 ]
@@ -484,7 +494,7 @@ dependencies = [
 [[package]]
 name = "bevy_mikktspace"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "glam",
 ]
@@ -492,7 +502,7 @@ dependencies = [
 [[package]]
 name = "bevy_pbr"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_asset",
@@ -512,12 +522,12 @@ dependencies = [
 [[package]]
 name = "bevy_ptr"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 
 [[package]]
 name = "bevy_reflect"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_ptr",
  "bevy_reflect_derive",
@@ -535,7 +545,7 @@ dependencies = [
 [[package]]
 name = "bevy_reflect_derive"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_macro_utils",
  "proc-macro2",
@@ -547,7 +557,7 @@ dependencies = [
 [[package]]
 name = "bevy_render"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "anyhow",
  "bevy_app",
@@ -589,7 +599,7 @@ dependencies = [
 [[package]]
 name = "bevy_render_macros"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_macro_utils",
  "proc-macro2",
@@ -600,7 +610,7 @@ dependencies = [
 [[package]]
 name = "bevy_scene"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "anyhow",
  "bevy_app",
@@ -621,7 +631,7 @@ dependencies = [
 [[package]]
 name = "bevy_sprite"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_asset",
@@ -646,7 +656,7 @@ dependencies = [
 [[package]]
 name = "bevy_tasks"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "async-channel",
  "async-executor",
@@ -660,7 +670,7 @@ dependencies = [
 [[package]]
 name = "bevy_text"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "ab_glyph",
  "anyhow",
@@ -682,7 +692,7 @@ dependencies = [
 [[package]]
 name = "bevy_time"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_ecs",
@@ -694,7 +704,7 @@ dependencies = [
 [[package]]
 name = "bevy_transform"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_ecs",
@@ -706,7 +716,7 @@ dependencies = [
 [[package]]
 name = "bevy_ui"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_asset",
@@ -733,7 +743,7 @@ dependencies = [
 [[package]]
 name = "bevy_utils"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "ahash",
  "getrandom",
@@ -746,7 +756,7 @@ dependencies = [
 [[package]]
 name = "bevy_window"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "bevy_app",
  "bevy_ecs",
@@ -760,7 +770,7 @@ dependencies = [
 [[package]]
 name = "bevy_winit"
 version = "0.8.1"
-source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#2066f1e54122d7ea9c7980348c8750ba21e09db5"
+source = "git+https://github.com/Andrewp2/andrew-bevy.git?branch=webgpu-2#65f8c1090912080a4fffbfe22f2012f2e1de106e"
 dependencies = [
  "approx",
  "bevy_app",
@@ -862,6 +872,17 @@ name = "bytes"
 version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dfb24e866b15a1af2a1b663f10c6b6b8f397a84aadb828f12e5b289ec23a3a3c"
+
+[[package]]
+name = "cargo-run-wasm"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "611b811fad83eebfcdcf47ae1e425c82d1249608bc571d537448d706be08cf27"
+dependencies = [
+ "devserver_lib",
+ "pico-args",
+ "wasm-bindgen-cli-support",
+]
 
 [[package]]
 name = "cc"
@@ -1210,6 +1231,12 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "devserver_lib"
+version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8fb4b71acc1405be2431a93892a79a0d82ed5ba6885649ddbdfc62caa4d67b1c"
 
 [[package]]
 name = "dispatch"
@@ -1593,6 +1620,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "heck"
+version = "0.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6d621efb26863f0e9924c6ac577e8275e5e6b77455db64ffa6c65c904e9e132c"
+dependencies = [
+ "unicode-segmentation",
+]
+
+[[package]]
 name = "hermit-abi"
 version = "0.1.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1622,6 +1658,12 @@ name = "hexf-parse"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dfa686283ad6dd069f105e5ab091b04c62850d3e4cf5d67debad1933f55023df"
+
+[[package]]
+name = "id-arena"
+version = "2.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "25a2bc672d1148e28034f176e01fffebb08b35768468cc954630da77a1449005"
 
 [[package]]
 name = "ident_case"
@@ -1794,6 +1836,12 @@ name = "lazycell"
 version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "830d08ce1d1d941e6b30645f1a0eb5643013d835ce3779a5fc208261dbe10f55"
+
+[[package]]
+name = "leb128"
+version = "0.2.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "884e2677b40cc8c339eaefcb701c32ef1fd2493d71118dc0ca4b6a736c93bd67"
 
 [[package]]
 name = "lewton"
@@ -2330,6 +2378,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "pico-args"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5be167a7af36ee22fe3115051bc51f6e6c7054c9348e28deb4f49bd6f705a315"
+
+[[package]]
 name = "pin-project-lite"
 version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2460,6 +2514,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "456c603be3e8d448b072f410900c09faf164fbce2d480456f50eea6e25f9c848"
 
 [[package]]
+name = "remove_dir_all"
+version = "0.5.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3acd125665422973a33ac9d3dd2df85edad0f4ae9b00dafb1a05e43a9f5ef8e7"
+dependencies = [
+ "winapi",
+]
+
+[[package]]
 name = "renderdoc-sys"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2481,10 +2544,23 @@ version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "88073939a61e5b7680558e6be56b419e208420c2adb92be54921fa6b72283f1a"
 dependencies = [
- "base64",
+ "base64 0.13.1",
  "bitflags",
  "serde",
 ]
+
+[[package]]
+name = "run-wasm"
+version = "0.1.0"
+dependencies = [
+ "cargo-run-wasm",
+]
+
+[[package]]
+name = "rustc-demangle"
+version = "0.1.21"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7ef03e0a2b150c7a90d01faf6254c9c48a41e95fb2a8c2ac1c6f0d2b9aefc342"
 
 [[package]]
 name = "rustc-hash"
@@ -2508,6 +2584,12 @@ name = "ryu"
 version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4501abdff3ae82a1c1b477a17252eb69cee9e66eb915c1abaa4f44d873df9f09"
+
+[[package]]
+name = "safemem"
+version = "0.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ef703b7cb59335eae2eb93ceb664c0eb7ea6bf567079d843e09420219668e072"
 
 [[package]]
 name = "same-file"
@@ -2656,6 +2738,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "tempfile"
+version = "3.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5cdb1ef4eaeeaddc8fbd371e5017057064af0911902ef36b39801f67cc6d79e4"
+dependencies = [
+ "cfg-if 1.0.0",
+ "fastrand",
+ "libc",
+ "redox_syscall",
+ "remove_dir_all",
+ "winapi",
+]
+
+[[package]]
 name = "termcolor"
 version = "1.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2710,9 +2806,9 @@ checksum = "cda74da7e1a664f795bb1f8a87ec406fb89a02522cf6e50620d016add6dbbf5c"
 
 [[package]]
 name = "toml"
-version = "0.5.9"
+version = "0.5.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8d82e1a7758622a465f8cee077614c73484dac5b836c02ff6a40d5d1010324d7"
+checksum = "1333c76748e868a4d9d1017b5ab53171dfd095f70c712fdb4653a406547f598f"
 dependencies = [
  "serde",
 ]
@@ -2809,6 +2905,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6ceab39d59e4c9499d4e5a8ee0e2735b891bb7308ac83dfb4e80cad195c9f6f3"
 
 [[package]]
+name = "unicode-segmentation"
+version = "1.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0fdbf052a0783de01e944a6ce7a8cb939e295b1e7be835a1112c3b9a7f047a5a"
+
+[[package]]
 name = "unicode-width"
 version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2866,6 +2968,32 @@ dependencies = [
 ]
 
 [[package]]
+name = "walrus"
+version = "0.19.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4eb08e48cde54c05f363d984bb54ce374f49e242def9468d2e1b6c2372d291f8"
+dependencies = [
+ "anyhow",
+ "id-arena",
+ "leb128",
+ "log",
+ "walrus-macro",
+ "wasmparser 0.77.0",
+]
+
+[[package]]
+name = "walrus-macro"
+version = "0.19.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0a6e5bd22c71e77d60140b0bd5be56155a37e5bd14e24f5f87298040d0cc40d7"
+dependencies = [
+ "heck",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "wasi"
 version = "0.11.0+wasi-snapshot-preview1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2894,6 +3022,40 @@ dependencies = [
  "quote",
  "syn",
  "wasm-bindgen-shared",
+]
+
+[[package]]
+name = "wasm-bindgen-cli-support"
+version = "0.2.83"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "03f35e0387a2c787ca5ee299bfb4259352b2a2184b406f8ee9f978c3c4671645"
+dependencies = [
+ "anyhow",
+ "base64 0.9.3",
+ "log",
+ "rustc-demangle",
+ "serde_json",
+ "tempfile",
+ "walrus",
+ "wasm-bindgen-externref-xform",
+ "wasm-bindgen-multi-value-xform",
+ "wasm-bindgen-shared",
+ "wasm-bindgen-threads-xform",
+ "wasm-bindgen-wasm-conventions",
+ "wasm-bindgen-wasm-interpreter",
+ "wit-text",
+ "wit-validator",
+ "wit-walrus",
+]
+
+[[package]]
+name = "wasm-bindgen-externref-xform"
+version = "0.2.83"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0d010a32a516a793adbea5835eab6f736d11c0cdd10ebe0c762c420f67510244"
+dependencies = [
+ "anyhow",
+ "walrus",
 ]
 
 [[package]]
@@ -2932,10 +3094,74 @@ dependencies = [
 ]
 
 [[package]]
+name = "wasm-bindgen-multi-value-xform"
+version = "0.2.83"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "78b8c8d5dcc451b7e6a9c98d8fd966ff768a1e8f8afb270a829780086f2885ac"
+dependencies = [
+ "anyhow",
+ "walrus",
+]
+
+[[package]]
 name = "wasm-bindgen-shared"
 version = "0.2.83"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1c38c045535d93ec4f0b4defec448e4291638ee608530863b1e2ba115d4fff7f"
+
+[[package]]
+name = "wasm-bindgen-threads-xform"
+version = "0.2.83"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0d10f9246c4daa911283a7096fc3be9f1fab9e3e36400478a4ab8d7056701420"
+dependencies = [
+ "anyhow",
+ "walrus",
+ "wasm-bindgen-wasm-conventions",
+]
+
+[[package]]
+name = "wasm-bindgen-wasm-conventions"
+version = "0.2.83"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b4a5ab217f12f73b7c3ff23cbbbb5d36f7ee97dd65bb0be44beebda887df9002"
+dependencies = [
+ "anyhow",
+ "walrus",
+]
+
+[[package]]
+name = "wasm-bindgen-wasm-interpreter"
+version = "0.2.83"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8fbb6c773b486889b7c1211d27a7a08eebaf54ec4269380266cadf69e269cd91"
+dependencies = [
+ "anyhow",
+ "log",
+ "walrus",
+ "wasm-bindgen-wasm-conventions",
+]
+
+[[package]]
+name = "wasmparser"
+version = "0.59.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a950e6a618f62147fd514ff445b2a0b53120d382751960797f85f058c7eda9b9"
+
+[[package]]
+name = "wasmparser"
+version = "0.77.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b35c86d22e720a07d954ebbed772d01180501afe7d03d464f413bb5f8914a8d6"
+
+[[package]]
+name = "wast"
+version = "21.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0b1844f66a2bc8526d71690104c0e78a8e59ffa1597b7245769d174ebb91deb5"
+dependencies = [
+ "leb128",
+]
 
 [[package]]
 name = "web-sys"
@@ -2953,7 +3179,6 @@ version = "0.1.0"
 dependencies = [
  "bevy",
  "console_error_panic_hook",
- "wgpu",
 ]
 
 [[package]]
@@ -3166,6 +3391,70 @@ dependencies = [
  "web-sys",
  "winapi",
  "x11-dl",
+]
+
+[[package]]
+name = "wit-parser"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3f5fd97866f4b9c8e1ed57bcf9446f3d0d8ba37e2dd01c3c612c046c053b06f7"
+dependencies = [
+ "anyhow",
+ "leb128",
+ "wit-schema-version",
+]
+
+[[package]]
+name = "wit-schema-version"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bfee4a6a4716eefa0682e7a3b836152e894a3e4f34a9d6c2c3e1c94429bfe36a"
+
+[[package]]
+name = "wit-text"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "33358e95c77d660f1c7c07f4a93c2bd89768965e844e3c50730bb4b42658df5f"
+dependencies = [
+ "anyhow",
+ "wast",
+ "wit-writer",
+]
+
+[[package]]
+name = "wit-validator"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3c11d93d925420e7872b226c4161849c32be38385ccab026b88df99d8ddc6ba6"
+dependencies = [
+ "anyhow",
+ "wasmparser 0.59.0",
+ "wit-parser",
+ "wit-schema-version",
+]
+
+[[package]]
+name = "wit-walrus"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ad559e3e4c6404b2a6a675d44129d62a3836e3b951b90112fa1c5feb852757cd"
+dependencies = [
+ "anyhow",
+ "id-arena",
+ "walrus",
+ "wit-parser",
+ "wit-schema-version",
+ "wit-writer",
+]
+
+[[package]]
+name = "wit-writer"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c2ad01ba5e9cbcff799a0689e56a153776ea694cec777f605938cb9880d41a09"
+dependencies = [
+ "leb128",
+ "wit-schema-version",
 ]
 
 [[package]]

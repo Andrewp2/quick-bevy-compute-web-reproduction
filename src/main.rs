@@ -35,17 +35,23 @@ async fn bevy_main() {
     });
     #[cfg(target_arch = "wasm32")]
     app.insert_resource(WgpuSettings {
-        backends: Some(Backends::BROWSER_WEBGPU),
-        // features: WgpuFeatures::all_webgpu_mask()
-        //     & !(WgpuFeatures::DEPTH_CLIP_CONTROL
-        //         | WgpuFeatures::DEPTH24UNORM_STENCIL8
-        //         | WgpuFeatures::DEPTH32FLOAT_STENCIL8
-        //         | WgpuFeatures::TEXTURE_COMPRESSION_ETC2
-        //         | WgpuFeatures::TEXTURE_COMPRESSION_ASTC_LDR
-        //         | WgpuFeatures::INDIRECT_FIRST_INSTANCE
-        //         | WgpuFeatures::TIMESTAMP_QUERY
-        //         | WgpuFeatures::PIPELINE_STATISTICS_QUERY
-        //         | WgpuFeatures::SHADER_FLOAT16),
+        backends: Some(
+            Backends::BROWSER_WEBGPU
+                | Backends::DX11
+                | Backends::DX12
+                | Backends::VULKAN
+                | Backends::METAL,
+        ),
+        features: WgpuFeatures::all_webgpu_mask()
+            & !(WgpuFeatures::DEPTH_CLIP_CONTROL
+                | WgpuFeatures::DEPTH24UNORM_STENCIL8
+                | WgpuFeatures::DEPTH32FLOAT_STENCIL8
+                | WgpuFeatures::TEXTURE_COMPRESSION_ETC2
+                | WgpuFeatures::TEXTURE_COMPRESSION_ASTC_LDR
+                | WgpuFeatures::INDIRECT_FIRST_INSTANCE
+                | WgpuFeatures::TIMESTAMP_QUERY
+                | WgpuFeatures::PIPELINE_STATISTICS_QUERY
+                | WgpuFeatures::SHADER_FLOAT16),
         ..Default::default()
     });
     app.insert_resource(ClearColor(Color::BLACK))
@@ -57,9 +63,7 @@ async fn bevy_main() {
         .add_plugins_async(DefaultPlugins)
         .await
         .unwrap();
-    app.add_plugin_async(&GameOfLifeComputePlugin)
-        .await
-        .unwrap();
+    app.add_plugin(GameOfLifeComputePlugin);
     app.add_startup_system(setup).run();
 }
 
