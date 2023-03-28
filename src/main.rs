@@ -1,276 +1,104 @@
-//! A compute shader that simulates Conway's Game of Life.
-//!
-//! Compute shaders use the GPU for computing arbitrary information, that may be independent of what
-//! is rendered to the screen.
-
-use bevy::log::LogSettings;
+use bevy::render::RenderPlugin;
+use bevy::sprite::MaterialMesh2dBundle;
 use bevy::{
-    log::Level,
     prelude::*,
     render::{
-        extract_resource::{ExtractResource, ExtractResourcePlugin},
-        render_asset::RenderAssets,
-        render_graph::{self, RenderGraph},
         render_resource::*,
-        renderer::{RenderContext, RenderDevice},
         settings::{Backends, WgpuSettings},
-        RenderApp, RenderStage,
     },
-    tasks::run_async,
-    window::WindowDescriptor,
 };
-use std::borrow::Cow;
+use plugin_group::{PostRenderPlugin, PreRenderPlugin};
 
-const SIZE: (u32, u32) = (1280, 720);
-const WORKGROUP_SIZE: u32 = 8;
+pub mod plugin_group;
+
+/*
+const webgpu_classes = Object.getOwnPropertyNames(window)
+    .filter(k => k.startsWith("GPU") && typeof window[k] === 'function')
+    .map(k => window[k]);
+const is_webgpu_obj = o => webgpu_classes.some(webgpu_class => o instanceof webgpu_class);
+function dropObject(idx) {
+    if (idx < 132) return;
+    if (is_webgpu_obj(heap[idx])) return;
+    heap[idx] = heap_next;
+    heap_next = idx;
+}
+ */
 
 #[bevy_main]
 async fn bevy_main() {
-    #[cfg(target_arch = "wasm32")]
-    console_error_panic_hook::set_once();
     let mut app = App::new();
-    app.insert_resource(LogSettings {
-        level: Level::INFO,
-        filter: "wgpu=INFO,bevy_render=INFO,bevy_ecs=INFO".to_string(),
-    });
-    #[cfg(target_arch = "wasm32")]
-    app.insert_resource(WgpuSettings {
-        backends: Some(
-            Backends::BROWSER_WEBGPU
-                | Backends::DX11
-                | Backends::DX12
-                | Backends::VULKAN
-                | Backends::METAL,
-        ),
-        features: WgpuFeatures::all_webgpu_mask()
-            & !(WgpuFeatures::DEPTH_CLIP_CONTROL
-                | WgpuFeatures::DEPTH24UNORM_STENCIL8
-                | WgpuFeatures::DEPTH32FLOAT_STENCIL8
-                | WgpuFeatures::TEXTURE_COMPRESSION_ETC2
-                | WgpuFeatures::TEXTURE_COMPRESSION_ASTC_LDR
-                | WgpuFeatures::INDIRECT_FIRST_INSTANCE
-                | WgpuFeatures::TIMESTAMP_QUERY
-                | WgpuFeatures::PIPELINE_STATISTICS_QUERY
-                | WgpuFeatures::SHADER_FLOAT16),
-        ..Default::default()
-    });
-    app.insert_resource(ClearColor(Color::BLACK))
-        .insert_resource(WindowDescriptor {
-            // uncomment for unthrottled FPS
-            // present_mode: bevy::window::PresentMode::AutoNoVsync,
-            ..default()
+    app.insert_resource(ClearColor(Color::BLACK));
+    app.add_plugins(PreRenderPlugin.build());
+    let _ = app
+        .add_plugin_async(RenderPlugin {
+            wgpu_settings: WgpuSettings {
+                backends: Some(Backends::BROWSER_WEBGPU),
+                features: (WgpuFeatures::all_webgpu_mask()).difference(
+                    WgpuFeatures::DEPTH_CLIP_CONTROL
+                        | WgpuFeatures::DEPTH32FLOAT_STENCIL8
+                        | WgpuFeatures::TEXTURE_COMPRESSION_ETC2
+                        | WgpuFeatures::TEXTURE_COMPRESSION_ASTC_LDR
+                        | WgpuFeatures::INDIRECT_FIRST_INSTANCE
+                        | WgpuFeatures::TIMESTAMP_QUERY
+                        | WgpuFeatures::PIPELINE_STATISTICS_QUERY
+                        | WgpuFeatures::SHADER_FLOAT16,
+                ),
+                ..Default::default()
+            },
         })
-        .add_plugins_async(DefaultPlugins)
         .await
         .unwrap();
-    app.add_plugin(GameOfLifeComputePlugin);
-    app.add_startup_system(setup).run();
+
+    app.add_plugins(PostRenderPlugin);
+    app.add_startup_system(setup);
+    app.add_system(print_stuff).run();
 }
 
-fn setup(mut commands: Commands, mut images: ResMut<Assets<Image>>) {
-    let mut image = Image::new_fill(
-        Extent3d {
-            width: SIZE.0,
-            height: SIZE.1,
-            depth_or_array_layers: 1,
-        },
-        TextureDimension::D2,
-        &[0, 0, 0, 255],
-        TextureFormat::Rgba8Unorm,
-    );
-    image.texture_descriptor.usage =
-        TextureUsages::COPY_DST | TextureUsages::STORAGE_BINDING | TextureUsages::TEXTURE_BINDING;
-    let image = images.add(image);
+fn print_stuff() {
+    error!("print stuff");
+}
 
-    commands.spawn_bundle(SpriteBundle {
-        sprite: Sprite {
-            custom_size: Some(Vec2::new(SIZE.0 as f32, SIZE.1 as f32)),
-            ..default()
-        },
-        texture: image.clone(),
+fn setup(
+    mut commands: Commands,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+) {
+    commands.spawn(Camera2dBundle::default());
+
+    // Circle
+    commands.spawn(MaterialMesh2dBundle {
+        mesh: meshes.add(shape::Circle::new(50.).into()).into(),
+        material: materials.add(ColorMaterial::from(Color::PURPLE)),
+        transform: Transform::from_translation(Vec3::new(-150., 0., 0.)),
         ..default()
     });
-    commands.spawn_bundle(Camera2dBundle::default());
 
-    commands.insert_resource(GameOfLifeImage(image));
-}
-
-pub struct GameOfLifeComputePlugin;
-
-impl Plugin for GameOfLifeComputePlugin {
-    fn build(&self, app: &mut App) {
-        // Extract the game of life image resource from the main world into the render world
-        // for operation on by the compute shader and display on the sprite.
-        app.add_plugin(ExtractResourcePlugin::<GameOfLifeImage>::default());
-        let render_app = app.sub_app_mut(RenderApp);
-        render_app
-            .init_resource::<GameOfLifePipeline>()
-            .add_system_to_stage(RenderStage::Queue, queue_bind_group);
-
-        let mut render_graph = render_app.world.resource_mut::<RenderGraph>();
-        render_graph.add_node("game_of_life", GameOfLifeNode::default());
-        render_graph
-            .add_node_edge(
-                "game_of_life",
-                bevy::render::main_graph::node::CAMERA_DRIVER,
-            )
-            .unwrap();
-    }
-}
-
-#[derive(Clone, Deref, ExtractResource)]
-struct GameOfLifeImage(Handle<Image>);
-
-struct GameOfLifeImageBindGroup(BindGroup);
-
-fn queue_bind_group(
-    mut commands: Commands,
-    pipeline: Res<GameOfLifePipeline>,
-    gpu_images: Res<RenderAssets<Image>>,
-    game_of_life_image: Res<GameOfLifeImage>,
-    render_device: Res<RenderDevice>,
-) {
-    let view = &gpu_images[&game_of_life_image.0];
-    let bind_group = render_device.create_bind_group(&BindGroupDescriptor {
-        label: None,
-        layout: &pipeline.texture_bind_group_layout,
-        entries: &[BindGroupEntry {
-            binding: 0,
-            resource: BindingResource::TextureView(&view.texture_view),
-        }],
+    // Rectangle
+    commands.spawn(SpriteBundle {
+        sprite: Sprite {
+            color: Color::rgb(0.25, 0.25, 0.75),
+            custom_size: Some(Vec2::new(50.0, 100.0)),
+            ..default()
+        },
+        transform: Transform::from_translation(Vec3::new(-50., 0., 0.)),
+        ..default()
     });
-    commands.insert_resource(GameOfLifeImageBindGroup(bind_group));
-}
 
-pub struct GameOfLifePipeline {
-    texture_bind_group_layout: BindGroupLayout,
-    init_pipeline: CachedComputePipelineId,
-    update_pipeline: CachedComputePipelineId,
-}
+    // Quad
+    commands.spawn(MaterialMesh2dBundle {
+        mesh: meshes
+            .add(shape::Quad::new(Vec2::new(50., 100.)).into())
+            .into(),
+        material: materials.add(ColorMaterial::from(Color::LIME_GREEN)),
+        transform: Transform::from_translation(Vec3::new(50., 0., 0.)),
+        ..default()
+    });
 
-impl FromWorld for GameOfLifePipeline {
-    fn from_world(world: &mut World) -> Self {
-        let texture_bind_group_layout =
-            world
-                .resource::<RenderDevice>()
-                .create_bind_group_layout(&BindGroupLayoutDescriptor {
-                    label: None,
-                    entries: &[BindGroupLayoutEntry {
-                        binding: 0,
-                        visibility: ShaderStages::COMPUTE,
-                        ty: BindingType::StorageTexture {
-                            access: StorageTextureAccess::ReadWrite,
-                            format: TextureFormat::Rgba8Unorm,
-                            view_dimension: TextureViewDimension::D2,
-                        },
-                        count: None,
-                    }],
-                });
-        let shader = world
-            .resource::<AssetServer>()
-            .load("shaders/game_of_life.wgsl");
-        let mut pipeline_cache = world.resource_mut::<PipelineCache>();
-        let init_pipeline = pipeline_cache.queue_compute_pipeline(ComputePipelineDescriptor {
-            label: None,
-            layout: Some(vec![texture_bind_group_layout.clone()]),
-            shader: shader.clone(),
-            shader_defs: vec![],
-            entry_point: Cow::from("init"),
-        });
-        let update_pipeline = pipeline_cache.queue_compute_pipeline(ComputePipelineDescriptor {
-            label: None,
-            layout: Some(vec![texture_bind_group_layout.clone()]),
-            shader,
-            shader_defs: vec![],
-            entry_point: Cow::from("update"),
-        });
-
-        GameOfLifePipeline {
-            texture_bind_group_layout,
-            init_pipeline,
-            update_pipeline,
-        }
-    }
-}
-
-enum GameOfLifeState {
-    Loading,
-    Init,
-    Update,
-}
-
-struct GameOfLifeNode {
-    state: GameOfLifeState,
-}
-
-impl Default for GameOfLifeNode {
-    fn default() -> Self {
-        Self {
-            state: GameOfLifeState::Loading,
-        }
-    }
-}
-
-impl render_graph::Node for GameOfLifeNode {
-    fn update(&mut self, world: &mut World) {
-        let pipeline = world.resource::<GameOfLifePipeline>();
-        let pipeline_cache = world.resource::<PipelineCache>();
-
-        // if the corresponding pipeline has loaded, transition to the next stage
-        match self.state {
-            GameOfLifeState::Loading => {
-                if let CachedPipelineState::Ok(_) =
-                    pipeline_cache.get_compute_pipeline_state(pipeline.init_pipeline)
-                {
-                    self.state = GameOfLifeState::Init;
-                }
-            }
-            GameOfLifeState::Init => {
-                if let CachedPipelineState::Ok(_) =
-                    pipeline_cache.get_compute_pipeline_state(pipeline.update_pipeline)
-                {
-                    self.state = GameOfLifeState::Update;
-                }
-            }
-            GameOfLifeState::Update => {}
-        }
-    }
-
-    fn run(
-        &self,
-        _graph: &mut render_graph::RenderGraphContext,
-        render_context: &mut RenderContext,
-        world: &World,
-    ) -> Result<(), render_graph::NodeRunError> {
-        let texture_bind_group = &world.resource::<GameOfLifeImageBindGroup>().0;
-        let pipeline_cache = world.resource::<PipelineCache>();
-        let pipeline = world.resource::<GameOfLifePipeline>();
-
-        let mut pass = render_context
-            .command_encoder
-            .begin_compute_pass(&ComputePassDescriptor::default());
-
-        pass.set_bind_group(0, texture_bind_group, &[]);
-
-        // select the pipeline based on the current state
-        match self.state {
-            GameOfLifeState::Loading => {}
-            GameOfLifeState::Init => {
-                let init_pipeline = pipeline_cache
-                    .get_compute_pipeline(pipeline.init_pipeline)
-                    .unwrap();
-                pass.set_pipeline(init_pipeline);
-                pass.dispatch_workgroups(SIZE.0 / WORKGROUP_SIZE, SIZE.1 / WORKGROUP_SIZE, 1);
-            }
-            GameOfLifeState::Update => {
-                let update_pipeline = pipeline_cache
-                    .get_compute_pipeline(pipeline.update_pipeline)
-                    .unwrap();
-                pass.set_pipeline(update_pipeline);
-                pass.dispatch_workgroups(SIZE.0 / WORKGROUP_SIZE, SIZE.1 / WORKGROUP_SIZE, 1);
-            }
-        }
-
-        Ok(())
-    }
+    // Hexagon
+    commands.spawn(MaterialMesh2dBundle {
+        mesh: meshes.add(shape::RegularPolygon::new(50., 6).into()).into(),
+        material: materials.add(ColorMaterial::from(Color::TURQUOISE)),
+        transform: Transform::from_translation(Vec3::new(150., 0., 0.)),
+        ..default()
+    });
 }
