@@ -29,8 +29,8 @@ impl PluginGroup for PreRenderPlugin {
         let mut builder = PluginGroupBuilder::start::<Self>();
 
         builder = builder.add(LogPlugin {
-            level: Level::DEBUG,
-            filter: "wgpu=debug,bevy_render=debug,bevy_ecs=debug".into(),
+            level: Level::WARN,
+            filter: "wgpu=WARN,bevy_render=WARN,bevy_ecs=WARN".into(),
         });
 
         builder = builder
@@ -45,6 +45,7 @@ impl PluginGroup for PreRenderPlugin {
             .add(WindowPlugin {
                 primary_window: Some(Window {
                     fit_canvas_to_parent: true,
+                    canvas: Some("#mycanvas".to_string()),
                     ..Default::default()
                 }),
                 ..Default::default()
@@ -82,10 +83,10 @@ impl PluginGroup for PostRenderPlugin {
             .add(TextPlugin::default())
             .add(UiPlugin::default())
             .add(PbrPlugin::default())
-            .add(GltfPlugin::default())
-            .add(AudioPlugin::default())
-            .add(GilrsPlugin::default())
-            .add(AnimationPlugin::default());
+            .add(GltfPlugin::default());
+        //.add(AudioPlugin::default())
+        //.add(GilrsPlugin::default())
+        //.add(AnimationPlugin::default());
         builder
     }
 }

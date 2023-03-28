@@ -48,14 +48,20 @@ async fn bevy_main() {
         })
         .await
         .unwrap();
+    for i in 0..100 {
+        web_sys::console::log_1(&i.to_string().into());
+    }
 
     app.add_plugins(PostRenderPlugin);
     app.add_startup_system(setup);
-    app.add_system(print_stuff).run();
+    app.add_system(print_stuff);
+    app.run();
 }
 
 fn print_stuff() {
-    error!("print stuff");
+    for i in 0..1000 {
+        web_sys::console::log_1(&i.to_string().into());
+    }
 }
 
 fn setup(
@@ -63,6 +69,9 @@ fn setup(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
 ) {
+    for i in 100..200 {
+        web_sys::console::log_1(&i.to_string().into());
+    }
     commands.spawn(Camera2dBundle::default());
 
     // Circle
@@ -101,4 +110,7 @@ fn setup(
         transform: Transform::from_translation(Vec3::new(150., 0., 0.)),
         ..default()
     });
+    for i in 200..300 {
+        web_sys::console::log_1(&i.to_string().into());
+    }
 }

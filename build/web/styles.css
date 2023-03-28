@@ -20,7 +20,7 @@ body {
     align-items: center;
 }
 
-#bevy {
+#mycanvas {
     background-color: white;
     width: 800px;
     height: 600px;
