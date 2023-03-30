@@ -44,17 +44,14 @@ impl PluginGroup for PreRenderPlugin {
             .add(InputPlugin::default())
             .add(WindowPlugin {
                 primary_window: Some(Window {
-                    fit_canvas_to_parent: true,
+                    fit_canvas_to_parent: false,
                     canvas: Some("#mycanvas".to_string()),
                     ..Default::default()
                 }),
                 ..Default::default()
             })
             .add(AccessibilityPlugin)
-            .add(AssetPlugin {
-                watch_for_changes: true,
-                ..Default::default()
-            })
+            .add(AssetPlugin::default())
             .add(ScenePlugin::default())
             .add(WinitPlugin::default());
         builder

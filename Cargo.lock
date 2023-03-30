@@ -416,12 +416,17 @@ dependencies = [
  "bevy_reflect",
  "bevy_tasks",
  "bevy_utils",
+ "crossbeam-channel",
  "downcast-rs",
  "event-listener",
  "fixedbitset",
+ "js-sys",
  "rustc-hash",
  "serde",
  "thread_local",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "web-sys",
 ]
 
 [[package]]

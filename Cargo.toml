@@ -8,7 +8,15 @@ edition = "2021"
 [dependencies]
 # bevy = {git = "https://github.com/Andrewp2/andrew-bevy.git", branch = "webgpu-0.10", version = "0.10.0"}
 bevy = { path = "../andrew-bevy", version = "0.10.0" }
-web-sys = { version = "0.3", features = ["console"] }
+web-sys = { version = "0.3", features = [
+    "console",
+    'Document',
+    'Element',
+    'HtmlElement',
+    'Node',
+    'Window',
+
+] }
 
 [workspace]
 resolver = "2" # Important! wgpu/Bevy needs this!

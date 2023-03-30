@@ -14,8 +14,10 @@ pub mod plugin_group;
 /*
 const webgpu_classes = Object.getOwnPropertyNames(window)
     .filter(k => k.startsWith("GPU") && typeof window[k] === 'function')
-    .map(k => window[k]);
-const is_webgpu_obj = o => webgpu_classes.some(webgpu_class => o instanceof webgpu_class);
+    .map(k => k);
+
+const is_webgpu_obj = o => o && o.constructor && webgpu_classes.some(webgpu_class => o.constructor.name === webgpu_class);
+
 function dropObject(idx) {
     if (idx < 132) return;
     if (is_webgpu_obj(heap[idx])) return;
@@ -28,40 +30,19 @@ function dropObject(idx) {
 async fn bevy_main() {
     let mut app = App::new();
     app.insert_resource(ClearColor(Color::BLACK));
-    app.add_plugins(PreRenderPlugin.build());
-    let _ = app
+    app.add_plugins(PreRenderPlugin);
+    let b = app
         .add_plugin_async(RenderPlugin {
             wgpu_settings: WgpuSettings {
                 backends: Some(Backends::BROWSER_WEBGPU),
-                features: (WgpuFeatures::all_webgpu_mask()).difference(
-                    WgpuFeatures::DEPTH_CLIP_CONTROL
-                        | WgpuFeatures::DEPTH32FLOAT_STENCIL8
-                        | WgpuFeatures::TEXTURE_COMPRESSION_ETC2
-                        | WgpuFeatures::TEXTURE_COMPRESSION_ASTC_LDR
-                        | WgpuFeatures::INDIRECT_FIRST_INSTANCE
-                        | WgpuFeatures::TIMESTAMP_QUERY
-                        | WgpuFeatures::PIPELINE_STATISTICS_QUERY
-                        | WgpuFeatures::SHADER_FLOAT16,
-                ),
                 ..Default::default()
             },
         })
         .await
-        .unwrap();
-    for i in 0..100 {
-        web_sys::console::log_1(&i.to_string().into());
-    }
-
-    app.add_plugins(PostRenderPlugin);
-    app.add_startup_system(setup);
-    app.add_system(print_stuff);
-    app.run();
-}
-
-fn print_stuff() {
-    for i in 0..1000 {
-        web_sys::console::log_1(&i.to_string().into());
-    }
+        .expect("Add render plugin");
+    b.add_plugins(PostRenderPlugin);
+    b.add_startup_system(setup);
+    b.run();
 }
 
 fn setup(
@@ -69,9 +50,6 @@ fn setup(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
 ) {
-    for i in 100..200 {
-        web_sys::console::log_1(&i.to_string().into());
-    }
     commands.spawn(Camera2dBundle::default());
 
     // Circle
@@ -110,7 +88,4 @@ fn setup(
         transform: Transform::from_translation(Vec3::new(150., 0., 0.)),
         ..default()
     });
-    for i in 200..300 {
-        web_sys::console::log_1(&i.to_string().into());
-    }
 }
