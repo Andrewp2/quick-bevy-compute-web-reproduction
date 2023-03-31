@@ -1,6 +1,6 @@
 ## Quick Start
 
-0. Change the Bevy installation from `path = { path = ...` to the git version `# bevy = {git = ...`
+0. Change the Bevy installation from `path = { path = ...` to the git version `# bevy = {git = ...`. The correct git version is commented out in `Cargo.toml`.
 1. Install `trunk` and `simple-http-server` (or a http server of your choice). [Trunk linked here.](https://trunkrs.dev/)
 2. Run `trunk build` to build WASM files + HTML + javascript to the `/dist` directory.
 3. Replace the `dropObject` function in the generated javascript with:
