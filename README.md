@@ -8,8 +8,10 @@
 ```js
 const webgpu_classes = Object.getOwnPropertyNames(window)
     .filter(k => k.startsWith("GPU") && typeof window[k] === 'function')
-    .map(k => window[k]);
-const is_webgpu_obj = o => webgpu_classes.some(webgpu_class => o instanceof webgpu_class);
+    .map(k => k);
+
+const is_webgpu_obj = o => o && o.constructor && webgpu_classes.some(webgpu_class => o.constructor.name === webgpu_class);
+
 function dropObject(idx) {
     if (idx < 132) return;
     if (is_webgpu_obj(heap[idx])) return;
